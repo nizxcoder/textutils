@@ -9,7 +9,9 @@ export default function TextForm(props) {
     // console.log(text);
     // let input_text = "hi";
     const prevStyle={
-        fontSize: `${textSize}px`
+        fontSize: `${textSize}px`,
+        minHeight: "100px"
+        
     }
     // it will handle text value inside the state if any changing occurs inside this
     const handleOnChange = (event)=>{
@@ -18,10 +20,13 @@ export default function TextForm(props) {
     //to convert given text to UpperCase
     const UpperCase = ()=>{
         setText(text.toUpperCase());
+        props.showAlert("Converted to UpperCase", "Success");
+        
     }
     //to convert given text to lowerCase
     const LowerCase = ()=>{
         setText(text.toLowerCase());
+        props.showAlert("Converted to LowerCase", "Success");
     }
     //to convert given text to inverseCase
     const invertCase = ()=>{
@@ -35,6 +40,7 @@ export default function TextForm(props) {
             else newText += word.toUpperCase();
         }
         setText(newText);
+        props.showAlert("Converted to InvertCase", "Success");
     }
     const initialCase = ()=>{
         let wordsArr = text.split(' ').filter((num)=>{
@@ -44,6 +50,7 @@ export default function TextForm(props) {
             newText += (word.at(0).toUpperCase()+(word.slice(1)).toLowerCase() + " ");
         }
         setText(newText)
+        props.showAlert("Converted to InitialCase", "Success");
     }
     const incFontSize = ()=>{
         setTextSize(textSize+1);
@@ -57,12 +64,14 @@ export default function TextForm(props) {
     //to copy the inside text of textArea
     const textCopy = ()=>{
         navigator.clipboard.writeText(text);
+        props.showAlert("Texts copied to clipboard", "Success");
     }
     //to paste the copy content inside the box
     const textPaste = ()=>{
         navigator.clipboard.readText().then((value)=>{
            setText(value);
         })
+        props.showAlert("Text pasted inside the textarea", "Success");
     }
     //to remove extra spaces
     const removeSpace = ()=>{
@@ -71,10 +80,12 @@ export default function TextForm(props) {
         }), newText = '';
         newText = wordsArr.join(" ")
         setText(newText);
+        props.showAlert("All extra spaces are reomved", "Success");
     }
     //to clear the textArea
     const clear = ()=>{
         setText('');
+        props.showAlert("All Text Cleared", "Success");
     }
 
     return (
@@ -88,8 +99,7 @@ export default function TextForm(props) {
                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  id='lower-case' type="button" onClick={LowerCase}>LowerCase</button>
                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={invertCase}>Invert Case</button>
                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={initialCase}>Initial Case</button>
-                <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={incFontSize}>Font Size++</button>
-                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  id='dfs' type='button' onClick={decFontSize}>Font Size--</button>
+                
                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={removeSpace}>Remove Spaces</button>
                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={textCopy}>Copy Text</button>
                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={textPaste}>Paste</button>
@@ -102,6 +112,8 @@ export default function TextForm(props) {
                     <h5><span>{(text.length * 0.005).toFixed(2)}</span> Minutes required to read</h5>
                     <h2 className='mt-4'>Preview</h2>
                     <pre className='px-4 py-2 text-start border' style={prevStyle}>{text.normalize()}</pre>
+                    <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={incFontSize}>Font Size++</button>
+                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  id='dfs' type='button' onClick={decFontSize}>Font Size--</button>
                 </div>
             </div>
 
