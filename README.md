@@ -1,4 +1,7 @@
-# Getting Started with Create React App
+# Getting Started with TextUtils App which created by using React
+
+You can go on the Textutils App througt the link--->
+https://nizxcoder.github.io/textutils/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
