@@ -90,20 +90,20 @@ export default function TextForm(props) {
 
     return (
         <div className='my-4 container text-center ' style={props.mode}>
-            <h2>{props.heading}</h2>
+            <h2 className='my-3'>{props.heading}</h2>
             <div className="input-group">
                 <textarea type="text" className="form-control" id="input-text" placeholder="Enter your text" value={text} style={props.mode} onChange={handleOnChange} cols="200" rows="5" />
             </div>
             <div className='container' style={props.mode}>
-                <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  id='upper-case' type="button" onClick={UpperCase}>UpperCase</button>
-                <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  id='lower-case' type="button" onClick={LowerCase}>LowerCase</button>
-                <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={invertCase}>Invert Case</button>
-                <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={initialCase}>Initial Case</button>
+                <button disabled={text.length === 0} className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  id='upper-case' type="button" onClick={UpperCase}>UpperCase</button>
+                <button disabled={text.length === 0} className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  id='lower-case' type="button" onClick={LowerCase}>LowerCase</button>
+                <button disabled={text.length === 0} className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={invertCase}>Invert Case</button>
+                <button disabled={text.length === 0} className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={initialCase}>Initial Case</button>
                 
-                <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={removeSpace}>Remove Spaces</button>
-                <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={textCopy}>Copy Text</button>
+                <button disabled={text.length === 0} className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={removeSpace}>Remove Spaces</button>
+                <button disabled={text.length === 0} className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={textCopy}>Copy Text</button>
                 <button className={`btn btn-outline-secondary mx-1 ${props.text==="☀️"?"text-light":"text-dark"} `}  type='button' onClick={textPaste}>Paste</button>
-                <button className = {`btn btn-outline-danger mx-1`} type="button" onClick={clear}>Clear</button>
+                <button disabled={text.length === 0} className = {`btn btn-outline-danger mx-1`} type="button" onClick={clear}>Clear</button>
                 <div className='container my-4'>
                     <h2>Your Text Summary</h2>
                     <h4>Words = <span>{text.split(" ").filter((num)=>{

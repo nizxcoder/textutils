@@ -39,7 +39,7 @@ function App() {
         borderColor: "white",
 
       });
-      // setText("🟢");
+      setText("☀️");
       showAlert("Green Mode Enabled", "Success");
       document.body.style.backgroundColor = "green";
       document.body.style.transition = "all 1s";
@@ -51,7 +51,7 @@ function App() {
         transition: 'all 1s',
         borderColor: "black"
       });
-      // setText("🟢");
+      setText("⚫");
       showAlert("Yellow Mode Enabled", "Success");
       document.body.style.backgroundColor = "yellow";
       document.body.style.transition = "all 1s";
@@ -63,7 +63,7 @@ function App() {
         transition: 'all 1s',
         borderColor: "white"
       });
-      // setText("🟢");
+      setText("☀️");
       showAlert("Blue Mode Enabled", "Success");
       document.body.style.backgroundColor = "blue";
       document.body.style.transition = "all 1s";
@@ -101,10 +101,10 @@ function App() {
           <Navbar title='TextUtils' mode={mode} changeMode={setBackground} text={text} />
           <Alert alert={alert} />
           <Routes>
-            <Route exact path='/' element={<Home mode={mode}/>}/>
-            <Route exact path='/about' element={<About mode={mode}/>} />
-            <Route exact path='/textform'
-              element={<TextForm heading="Enter the text to convert in UpperCase or LowerCase." mode={mode} text={text} showAlert={showAlert} />} />
+            <Route exact path='/textutils/' element={<Home mode={mode}/>}/>
+            <Route exact path='/textutils/about' element={<About mode={mode}/>} />
+            <Route exact path='/textutils/textform'
+              element={<TextForm heading="Manipulate Your Text Here!" mode={mode} text={text} showAlert={showAlert} />} />
           </Routes>
         </div>
       </Router>

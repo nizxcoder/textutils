@@ -5,8 +5,10 @@ export default function Alert(props) {
         transition: "all 1s"
     }
     return (
-        props.alert && <div className={`alert alert-${props.alert.type.toLowerCase()} alert-dismissible fade show`} style={alertStyle} role="alert">
+        <div style={{height: "50px"}}>
+        {props.alert && <div className={`alert alert-${props.alert.type.toLowerCase()} alert-dismissible fade show`} style={alertStyle} role="alert">
             <strong>{props.alert.type}</strong> {props.alert.msg}
-        </div>       
+        </div>}  
+        </div>    
     )
 }
